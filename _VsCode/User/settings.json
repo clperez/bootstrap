@@ -1,0 +1,49 @@
+{
+	"files.autoSave": "afterDelay",
+	"editor.formatOnSave": true,
+	"window.restoreWindows": "none",
+	"window.zoomLevel": -1,
+	"remote.SSH.remotePlatform": {
+		"tamqa": "linux"
+	},
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"FSharp.useSdkScripts": true,
+	"python.languageServer": "Microsoft",
+
+	// Controls whether the editor should automatically close brackets after the user adds an opening bracket.
+	//  - always
+	//  - languageDefined: Use language configurations to determine when to autoclose brackets.
+	//  - beforeWhitespace: Autoclose brackets only when the cursor is to the left of whitespace.
+	//  - never
+	"editor.autoClosingBrackets": "never",
+
+	// Controls whether the editor should type over closing quotes or brackets.
+	//  - always
+	//  - auto: Type over closing quotes or brackets only if they were automatically inserted.
+	//  - never
+	"editor.autoClosingOvertype": "never",
+
+	// Controls whether the editor should automatically close quotes after the user adds an opening quote.
+	//  - always
+	//  - languageDefined: Use language configurations to determine when to autoclose quotes.
+	//  - beforeWhitespace: Autoclose quotes only when the cursor is to the left of whitespace.
+	//  - never
+	"editor.autoClosingQuotes": "never",
+	"[javascript]": {
+		"editor.defaultFormatter": "HookyQR.beautify"
+	},
+	
+	"[plaintext]": {
+		"editor.rulers": [75,80]
+	},
+
+	"editor.fontFamily": "Cascadia Code",
+	"editor.fontSize": 16,
+	"terminal.integrated.fontSize": 16,
+	"[jsonc]": {
+		"editor.defaultFormatter": "HookyQR.beautify"
+	},
+	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe"
+
+}

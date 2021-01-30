@@ -1,0 +1,131 @@
+// Place your key bindings in this file to override the defaults
+[
+    //NAVIGATION 
+    {
+        "key": "alt+left",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.navigateForward"
+    },
+    // EDITION
+    {
+        "key": "shift+alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    { "key": "alt+shift+]",        "command": "workbench.action.moveEditorToNextGroup" },
+    { "key": "alt+shift+[",         "command": "workbench.action.moveEditorToPreviousGroup" },
+    { "key": "alt+]",         "command": "workbench.action.nextEditor" },
+    { "key": "alt+[",         "command": "workbench.action.previousEditor" },
+    {
+        "key": "ctrl+alt+down",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    //{ "key": "ctrl+down", "command": "editor.action.", "when": "editorTextFocus && !editorReadonly" },
+    //{ "key": "ctrl+up",   "command": "editor.action.copyLinesUpAction",   "when": "editorTextFocus && !editorReadonly" },
+    // FIND/FIND and REPLACE
+    // ctrl+shift+f: Find in files
+    // ctrl+shift+h: Replace in files
+    //{ "key": "ctrl+shift+up", "command": "goToPreviousReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
+    //{ "key": "ctrl+shift+down", "command": "goToNextReference",  "when": "inReferenceSearchEditor || referenceSearchVisible" },
+    //{ "key": "ctrl+shift+up", "command": "search.action.focusPreviousSearchResult", "when": "hasSearchResult || inSearchEditor" },
+    //{ "key": "ctrl+shift+down", "command": "search.action.focusNextSearchResult", "when": "hasSearchResult || inSearchEditor" },
+    // ctrl+f: Find in editor
+    // ctrl+h: Replace in editor
+    {
+        "key": "ctrl+shift+up",
+        "command": "editor.action.previousSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    // Errors
+    // ctrl+shift+m: Show errors
+    {
+        "key": "alt+up",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    // SELECTION 
+    // Expand and shrink
+    {
+        "key": "ctrl+alt+right",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "editor.action.smartSelect.shrink",
+        "when": "editorFocus"
+    },
+    // Select next word, exactly as ctrl+shift
+    {
+        "key": "ctrl+right",
+        "command": "cursorWordRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "cursorWordRightSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+shift+right",
+        "command": "cursorWordRightSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+left",
+        "command": "cursorWordLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+left",
+        "command": "cursorWordLeftSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+shift+left",
+        "command": "cursorWordLeftSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "alt+a",
+        "command": "editor.debug.action.selectionToWatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+enter",
+        "command": "fsi.SendSelection",
+        "when": "editorFocus && !findWidgetVisible && editorLangId == 'fsharp'"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "-workbench.view.debug"
+    }
+]

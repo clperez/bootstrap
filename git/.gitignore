@@ -1,0 +1,6 @@
+
+#Example:
+#     pippo/*
+#     !pippo/pluto
+#     pippo/pluto/*
+#     !pippo/pluto/paperino.xml
