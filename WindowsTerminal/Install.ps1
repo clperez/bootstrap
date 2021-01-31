@@ -1,9 +1,14 @@
 
-$base = (Split-Path $MyInvocation.MyCommand.Path -Parent)
-
 
 choco upgrade microsoft-windows-terminal -y
 
-# copy "$base\settings.xml" 
+Push-Location "$terminalDir"
+
+$base = (Split-Path $MyInvocation.MyCommand.Path -Parent)
 $terminalDir = ((Get-ChildItem -Path "$env:LOCALAPPDATA\Packages\Microsoft.*\LocalState\" -Directory -Force ) | Select-Object -first 1 | Select-Object FullName).FullName
-copy -Path "$base\settings.json" -Destination "$terminalDir\settings.json"
+Remove-Item ".\settings.json" -ErrorAction SilentlyContinue
+cmd /c mklink /H ".\settings.json" "$base\settings.json"
+
+Pop-Location
+
+

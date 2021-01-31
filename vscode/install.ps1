@@ -1,4 +1,6 @@
-echo Installing extensions
+choco upgrade vscode -y
+
+Write-Output Installing extensions ...
 
 code --install-extension CoenraadS.bracket-pair-colorizer-2
 code --install-extension eamodio.gitlens
@@ -19,9 +21,20 @@ code --install-extension vscjava.vscode-java-dependency
 code --install-extension vscjava.vscode-java-pack
 code --install-extension vscjava.vscode-java-test
 code --install-extension vscjava.vscode-maven
+code --install-extension bbenoist.vagrant
+code --install-extension DotJoshJohnson.xml
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
 
-# code --install-extension vscjava.vscode-java-pack
-# code --install-extension ms-vscode.csharp
-# code --install-extension ms-python.python
-# code --install-extension ms-azuretools.vscode-docker
-# code --install-extension eamodio.gitlens
+Write-Output Finished installing vscode extensions
+
+Write-Output Deploying configuration files ...
+Push-Location "~\AppData\Roaming\Code\User"
+Remove-Item .gitconfig -ErrorAction SilentlyContinue
+Remove-Item .gitignore -ErrorAction SilentlyContinue
+
+cmd /c mklink /H ".\keybindings.json" "$base\keybindings.json"
+cmd /c mklink /H ".\settings.json" "$base\settings.json"
+Pop-Location
+Write-Output Finished deploying configuration files.
