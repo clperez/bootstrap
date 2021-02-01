@@ -38,12 +38,11 @@
 		"editor.rulers": [75,80]
 	},
 
-	"editor.fontFamily": "Cascadia Code",
+	"editor.fontFamily": "Cascadia Code PL",
 	"editor.fontSize": 16,
 	"terminal.integrated.fontSize": 16,
 	"[jsonc]": {
 		"editor.defaultFormatter": "HookyQR.beautify"
 	},
 	"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe"
-
 }
