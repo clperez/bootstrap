@@ -19,8 +19,31 @@ Pop-Location
 Write-Output Finished deploying Windows Terminal settings.
 
 Write-Output Install posh-git and ohmyposh ...
-Install-Module posh-git -Scope CurrentUser -AllowClobber -SkipPublisherCheck
-Install-Module oh-my-posh -Scope CurrentUser -AllowClobber -SkipPublisherCheck
+
+if (-not(Get-InstalledModule posh-git -ErrorAction silentlycontinue)) {
+    Write-Host "Installing module posh-git"
+    Install-Module posh-git -Scope CurrentUser -AllowClobber -SkipPublisherCheck -Force  -SkipPublisherCheck
+} Else {
+    Write-Host "Upgrading module posh-git"
+    Update-Module -Name posh-git -Scope CurrentUser -AllowClobber -Force -AcceptLicense
+}
+
+if (-not(Get-InstalledModule oh-my-posh -ErrorAction silentlycontinue)) {
+    Write-Host "Installing module oh-my-posh"
+    Install-Module oh-my-posh -Scope CurrentUser -AllowClobber -SkipPublisherCheck -Force  -SkipPublisherCheck
+} Else {
+    Write-Host "Upgrading module oh-my-posh"
+    Update-Module -Name oh-my-posh -Scope CurrentUser -AllowClobber -Force -AcceptLicense
+}
+
+if (-not(Get-InstalledModule PSReadLine -ErrorAction silentlycontinue)) {
+    Write-Host "Installing module PSReadLine"
+    Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+} Else {
+    Write-Host "Upgrading module PSReadLine"
+    Update-Module -Name PSReadLine -Scope CurrentUser -AllowClobber -Force -AcceptLicense
+}
+
 Write-Output Finished installing posh-git and ohmyposh
 
 Write-Output Installing coding fonts ...
