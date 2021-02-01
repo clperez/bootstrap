@@ -27,6 +27,7 @@ code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vscode-remote.remote-ssh
 code --install-extension ms-vscode-remote.remote-ssh-edit
 code --install-extension HookyQR.beautify
+code --install-extension johnstoncode.svn-scm
 
 Write-Output Finished installing vscode extensions
 
