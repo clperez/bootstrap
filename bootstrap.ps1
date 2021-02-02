@@ -13,23 +13,36 @@ Write-Output ("Installing git...")
 choco upgrade git -y
 Write-Output ("Finished installing git.")
 
-RefreshEnv
+Push-Location $env:USERPROFILE
 
-if (Test-Path -Path "~\source\github\bootstrap" ) {
-    Remove-Item "~\source\github\bootstrap"
+If (Test-Path -Path source\github\bootstrap ) {
+    Write-Output ("Removing bootstrap folder.")
+    Remove-Item source\github\bootstrap -Force -Recurse -ErrorAction SilentlyContinue
 }
 
-    
-Write-Output ("Clonning repo...")
-mkdir "~\source\github\bootstrap"
-git clone https://github.com/clperez/bootstrap "~\source\github\bootstrap"
-
-Push-Location "~\source\github\bootstrap"
-Get-ChildItem -Path . -Directory | ForEach-Object { 
-    $installPath = Join-Path $_ "Install.ps1"
-    if (Test-Path -Path $installPath ) {
-        Invoke-Expression -Command $installPath
-    }
+If (!(Test-Path -Path source\github\) ) {
+    Write-Output ("Creating github folder.")
+    mkdir source\github\
 }
+
 Pop-Location
 
+try {
+    if (Get-Command "git") {
+        Push-Location ~\source\github
+        git clone https://github.com/clperez/bootstrap bootstrap
+        Pop-Location
+
+        Push-Location ~\source\github\bootstrap
+        Get-ChildItem -Path . -Directory | ForEach-Object { 
+            $installPath = Join-Path $_ "Install.ps1"
+            if (Test-Path -Path $installPath ) {
+                Invoke-Expression -Command $installPath
+            }            
+        }
+        Pop-Location    
+    }
+}
+Catch {
+    Write-Output "Please restart your shell and run the command again."
+}
